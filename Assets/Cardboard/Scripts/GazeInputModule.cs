@@ -71,7 +71,7 @@ public class GazeInputModule : BaseInputModule {
   public override bool ShouldActivateModule() {
     bool activeState = base.ShouldActivateModule();
 
-    activeState = activeState && (Cardboard.SDK.VRModeEnabled || !vrModeOnly);
+    activeState = activeState && Cardboard.SDK != null && (Cardboard.SDK.VRModeEnabled || !vrModeOnly);
 
     if (activeState != isActive) {
       isActive = activeState;
